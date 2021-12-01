@@ -11,6 +11,7 @@ type Authorization interface {
 }
 
 type TodoList interface {
+	CreateTodo(todo todo.TodoList) (int, error)
 }
 
 type Repository struct {
@@ -21,5 +22,6 @@ type Repository struct {
 func NewRepository(db *sqlx.DB) *Repository {
 	return &Repository{
 		Authorization: NewAuthPostgres(db),
+		TodoList:      NewTodoListPostgres(db),
 	}
 }

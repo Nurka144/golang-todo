@@ -24,6 +24,7 @@ func (h Handler) InitRoutes() *gin.Engine {
 	}
 
 	api := router.Group("/api")
+	api.Use(h.Authorization())
 	{
 		lists := api.Group("/lists")
 		{
