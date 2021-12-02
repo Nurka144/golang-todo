@@ -1,7 +1,8 @@
 package todo
 
 type TodoList struct {
-	Name        string `json:"name"`
-	Description string `json:"description"`
-	Completed   bool   `json:"completed"`
+	Id          int    `json:"id" db:"id"`
+	Name        string `json:"name" db:"name"`
+	Description string `json:"description" db:"description"`
+	Completed   bool   `json:"completed" db:"completed"`
 }

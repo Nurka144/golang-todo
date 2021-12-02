@@ -29,7 +29,11 @@ func (h *Handler) createList(c *gin.Context) {
 }
 
 func (h *Handler) getAllList(c *gin.Context) {
+	todoLists, _ := h.services.TodoList.GetAllTodo()
 
+	c.JSON(200, gin.H{
+		"data": todoLists,
+	})
 }
 
 func (h *Handler) getList(c *gin.Context) {

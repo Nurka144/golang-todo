@@ -26,3 +26,11 @@ func (r *TodoListPostgres) CreateTodo(todo todo.TodoList) (int, error) {
 
 	return id, nil
 }
+
+func (r *TodoListPostgres) GetAllTodo() ([]todo.TodoList, error) {
+	var todoListArr []todo.TodoList
+	query := fmt.Sprint("select * from todo_lists")
+	err := r.db.Select(&todoListArr, query)
+
+	return todoListArr, err
+}

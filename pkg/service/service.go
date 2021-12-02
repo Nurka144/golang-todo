@@ -13,6 +13,7 @@ type Authorization interface {
 
 type TodoList interface {
 	CreateTodo(todo todo.TodoList) (int, error)
+	GetAllTodo() ([]todo.TodoList, error)
 }
 
 type Service struct {
